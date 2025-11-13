@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/usr/include/SDL2
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -D_REENTRANT -std=gnu++17
 
