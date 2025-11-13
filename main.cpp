@@ -2,6 +2,38 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
+
+void draw_fretboard(SDL_Renderer*& renderer){
+    SDL_Rect string1 = {0, 60, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string1);
+
+    SDL_Rect string2 = {0, 120, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string2);
+
+    SDL_Rect string3 = {0, 180, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string3);
+
+    SDL_Rect string4 = {0, 240, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string4);
+
+    SDL_Rect string5 = {0, 300, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string5);
+
+    SDL_Rect string6 = {0, 360, 1280, 5};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &string6);
+
+    SDL_Rect nut = {50, 0, 5, 480};
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &nut);
+
+}
+
 int main(int argc, char* argv[]) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -10,7 +42,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Create a window
-    SDL_Window* window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 480, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("SoloPlayer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 480, SDL_WINDOW_SHOWN);
     if (!window) {
         std::cerr << "SDL_CreateWindow failed: " << SDL_GetError() << std::endl;
         SDL_Quit();
@@ -38,13 +70,10 @@ int main(int argc, char* argv[]) {
         }
 
         // Clear the screen
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
-        // Draw a rectangle
-        SDL_Rect rect = { 50, 50, 50, 50 };
-        SDL_SetRenderDrawColor(renderer, 95, 255, 235, 255);
-        SDL_RenderFillRect(renderer, &rect);
+        draw_fretboard(renderer);
 
         // Present the screen
         SDL_RenderPresent(renderer);
