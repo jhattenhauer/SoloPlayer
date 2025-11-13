@@ -1,3 +1,0 @@
-/home/ubuntu/projects/SoloPlayer/build/CMakeFiles/main.dir
-/home/ubuntu/projects/SoloPlayer/build/CMakeFiles/edit_cache.dir
-/home/ubuntu/projects/SoloPlayer/build/CMakeFiles/rebuild_cache.dir
