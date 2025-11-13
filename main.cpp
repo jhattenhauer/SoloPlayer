@@ -1,7 +1,5 @@
-// basic_game_loop
 #include <SDL2/SDL.h>
 #include <iostream>
-
 
 void draw_fretboard(SDL_Renderer*& renderer){
     SDL_Rect string1 = {0, 60, 1280, 5};
@@ -34,6 +32,7 @@ void draw_fretboard(SDL_Renderer*& renderer){
 
 }
 
+
 int main(int argc, char* argv[]) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -58,7 +57,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Main loop
+    // Main Game Loop
     bool running = true;
     while (running) {
         // Handle events
@@ -69,23 +68,17 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Clear the screen
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
         draw_fretboard(renderer);
 
-        // Present the screen
         SDL_RenderPresent(renderer);
-
-        // Cap the frame rate
         SDL_Delay(1000 / 60);
     }
 
-    // Clean up
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
-
     return 0;
 }
