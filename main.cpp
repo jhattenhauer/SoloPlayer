@@ -26,7 +26,7 @@ void draw_fretboard(SDL_Renderer*& renderer){
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderFillRect(renderer, &string6);
 
-    SDL_Rect nut = {50, 0, 5, 480};
+    SDL_Rect nut = {50, 40, 5, 350};
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderFillRect(renderer, &nut);
 
