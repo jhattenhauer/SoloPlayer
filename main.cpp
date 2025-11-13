@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Create a window
-    SDL_Window* window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 480, SDL_WINDOW_SHOWN);
     if (!window) {
         std::cerr << "SDL_CreateWindow failed: " << SDL_GetError() << std::endl;
         SDL_Quit();
@@ -42,8 +42,8 @@ int main(int argc, char* argv[]) {
         SDL_RenderClear(renderer);
 
         // Draw a rectangle
-        SDL_Rect rect = { 100, 100, 200, 200 };
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        SDL_Rect rect = { 50, 50, 50, 50 };
+        SDL_SetRenderDrawColor(renderer, 95, 255, 235, 255);
         SDL_RenderFillRect(renderer, &rect);
 
         // Present the screen
