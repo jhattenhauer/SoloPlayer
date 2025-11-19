@@ -10,3 +10,4 @@ DONE:
 TODO:
     match sample pitch to string/fret
     note matching algorithm
+    start settings page with json

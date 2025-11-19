@@ -22,19 +22,21 @@ std::vector<std::complex<double>> fft_wrapper(const std::vector<int32_t>& intInp
     return output; // full frequency-domain vector
 }
 
-int findDominantFrequency(const std::vector<double>& samples, double sampleRate) {//find dominant frequency
+double findDominantFrequency(const std::vector<double>& samples, double sampleRate) {
     int N = samples.size();
     std::vector<std::complex<double>> spectrum(N / 2 + 1);
     doFFT(samples, spectrum);
-    // Find index of the largest magnitude
+
     int maxIndex = 0;
     double maxMag = 0.0;
+
     for (int i = 0; i < spectrum.size(); ++i) {
-        double mag = std::norm(spectrum[i]);  // magnitude squared
+        double mag = std::abs(spectrum[i]);
         if (mag > maxMag) {
             maxMag = mag;
             maxIndex = i;
         }
     }
-    return maxIndex;
+    return maxIndex * (sampleRate / N);
 }
+

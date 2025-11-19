@@ -19,15 +19,11 @@ beat_count = 0
 logging.debug(f"{song.title}")
 logging.debug(f"{song.tempo}")
 
-measure_count = 0
 for track in song.tracks:
     logging.debug(f"{track.name}")
     for measure in track.measures:
-        logging.debug(f"numerator: {song.measureHeaders[0].timeSignature.numerator}, denominator: {song.measureHeaders[0].timeSignature.denominator}")
-        measure_count += 1
         for voice in measure.voices:
             for beat in voice.beats:
-                beat_count += 1
                 logging.debug(f"\nbreak note\n")
                 for note in beat.notes:
                     logging.debug(f"String: {note.string}, Fret: {note.value}")            
