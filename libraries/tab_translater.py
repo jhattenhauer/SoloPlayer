@@ -3,7 +3,7 @@ import logging
 import os
 
 
-tab_file = "tabs/creed-one_last_breath.gp3"
+tab_file = input("Select GP3 file")
 song = guitarpro.parse(tab_file)
 
 log_file = "track_output.log"
@@ -12,19 +12,13 @@ if os.path.exists(log_file):
 
 logging.basicConfig(filename='track_output.log', level=logging.DEBUG)
 
+#track selection
+track_index = 0
+for i in song.tracks:
+    print(f"Track index {track_index}: {i.name}")
+    track_index += 1
+selected_track_index = int(input("Select input track: "))
 
-lead_guitar = song.tracks[0]
-beat_count = 0
+selected_track = song.tracks[selected_track_index]
+print(selected_track.name)
 
-logging.debug(f"{song.title}")
-logging.debug(f"{song.tempo}")
-
-for track in song.tracks:
-    logging.debug(f"{track.name}")
-    for measure in track.measures:
-        for voice in measure.voices:
-            for beat in voice.beats:
-                logging.debug(f"\nbreak note\n")
-                for note in beat.notes:
-                    logging.debug(f"String: {note.string}, Fret: {note.value}")            
-                    pass

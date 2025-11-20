@@ -1,6 +1,11 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
+#include "libraries/alsa_utils.h"
+#include "libraries/fft_utils.h"
+#include "libraries/tab_parser.h"
+
+
 void draw_fretboard(SDL_Renderer*& renderer){
     SDL_Rect string1 = {0, 60, 1280, 5};
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
